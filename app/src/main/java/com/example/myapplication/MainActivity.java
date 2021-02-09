@@ -1,0 +1,53 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.myapplication.Fragments.PageFragment1;
+import com.example.myapplication.Fragments.PageFragment2;
+import com.example.myapplication.Fragments.PageFragment3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+    private ViewPager pager;
+    private PagerAdapter pagerAdapter;
+//private Button btn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+      //  btn=findViewById(R.id.button);
+        //btn.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+            //public void onClick(View v) {
+              //  handleService();
+       //     }
+        //});
+
+        List<Fragment> list=new ArrayList<>();
+        list.add(new PageFragment1());
+        list.add(new PageFragment2());
+        list.add(new PageFragment3());
+        pager=findViewById(R.id.pager);
+        pagerAdapter=new SlidePagerAdapter(getSupportFragmentManager(),list);
+        pager.setAdapter(pagerAdapter);
+
+        }
+    //public void handleService(){
+      //  Intent intent=new Intent(this,IntentService.class);
+        //startService(intent);
+
+
+    //}
+}
